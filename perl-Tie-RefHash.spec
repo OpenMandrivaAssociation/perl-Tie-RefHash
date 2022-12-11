@@ -1,15 +1,14 @@
 %define upstream_name    Tie-RefHash
-%define upstream_version 1.39
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	1.40
+Release:	1
 
 Summary:	Use references as hash keys
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Tie/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Tie/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -30,42 +29,19 @@ keys. This will happen without warning whenever you store a reference to
 one of your own hashes in the tied hash.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
+perl Makefile.PL INSTALLDIRS=vendor
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor
-%make
+%make_build
 
 %check
 make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc Changes
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
-
-%changelog
-* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.390.0-2mdv2011.0
-+ Revision: 657474
-- rebuild for updated spec-helper
-
-* Sun Mar 06 2011 Sandro Cazzaniga <kharec@mandriva.org> 1.390.0-1
-+ Revision: 642388
-- New version
-
-* Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.380.0-1mdv2010.0
-+ Revision: 401503
-- rebuild using %%perl_convert_version
-- fixed license field
-
-* Mon May 11 2009 Jérôme Quelin <jquelin@mandriva.org> 1.38-1mdv2010.0
-+ Revision: 374297
-- import perl-Tie-RefHash
-
-
-* Mon May 11 2009 cpan2dist 1.38-1mdv
-- initial mdv release, generated with cpan2dist
-
