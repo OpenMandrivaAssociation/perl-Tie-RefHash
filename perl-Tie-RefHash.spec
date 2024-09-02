@@ -1,7 +1,7 @@
 %define upstream_name    Tie-RefHash
 
 Name:		perl-%{upstream_name}
-Version:	1.40
+Version:	1.41
 Release:	1
 
 Summary:	Use references as hash keys
