@@ -7,7 +7,7 @@ Release:	1
 Summary:	Use references as hash keys
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Tie/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	perl-devel
